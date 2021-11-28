@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+  <ul>
+    <li v-for="item in names">{{item}}</li>
+  </ul>
+  <button @click="btn">按钮</button>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      names: ['a','b','c','d']
+    },
+    methods:{
+      btn(){
+        // 响应式方法
+        // 1.push 数组末尾添加
+        // this.names.push('aaa')
+        // this.names.push('aaa','bbb','ccc')
+        // 2.pop() 删除数组最后一个元素
+        // 3.shift() 删除数组第一个元素
+        // 4.unshift() 在数组最前面添加元素
+        // 5.splice() 作用：删除元素/插入元素/替换元素
+        // 删除元素：第二个参数传入要删除几个元素（如果没有参数，则删除后面所有元素）
+        // 插入元素：第二个参数，表示我们要替换几个元素，后面是用于替换前面的元素
+        // 替换元素：第二个参数，传入0，并且后面跟上要插入的元素
+        // splice(start)
+        // 6.sort() 排序
+        // 7.reverse() 反转
+        // 8.Vue.set（要修改的对象,索引值,修改后的值)
+        Vue.set(this.names,0,'bbbbb')
+        // 非响应式方法
+        // 通过索引值修改数组中的元素
+        // this.names[0] = 'bbbb';
+      }
+    }
+  })
+</script>
+</body>
+</html>

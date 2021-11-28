@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+  <h1>{{message}}</h1>
+<!--  v-html 按照HTML格式解析，并显示对应的内容-->
+  <h1 v-html="url"></h1>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HEELOWORLD',
+      url:'<a href="http://www.baidu.com">百度一下</a>'
+    }
+  })
+</script>
+</body>
+</html>

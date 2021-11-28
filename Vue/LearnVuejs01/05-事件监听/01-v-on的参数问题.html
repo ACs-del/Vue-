@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+<!--  事件调用的方法没有参数-->
+  <button @click="btn1Click()">按钮1(无参)</button>
+  <button @click="btn1Click">按钮1(无参无括号)</button><br>
+  <!--  事件调用的方法有参数-->
+  <button @click="btn2Click(123)">按钮2（有参）</button>
+<!--  如果函数需要参数，但没有传入，函数形参为undefined-->
+  <button @click="btn2Click()">按钮2（有参无值）</button>
+  <!--  在事件定义时，方法有参数省略括号，vue会默认将浏览器产生的event事件对象作为参数传入到方法-->
+  <button @click="btn2Click">按钮2（有参无括号）</button><br>
+<!--  在调用方法，手动获取浏览器参数的event对象：$event-->
+  <button @click="btn5Click(123,$event)">按钮3（多参）</button>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HELLOWORLD'
+    },
+    methods:{
+      btn1Click(){
+        console.log("bth1Click")
+      },
+      btn2Click(event){
+        console.log(event)
+      },
+      btn5Click(abc,event){
+        console.log(abc,event)
+      }
+    }
+  })
+</script>
+</body>
+</html>

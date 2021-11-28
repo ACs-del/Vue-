@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+<!--  v-model本质是一个语法糖-->
+<!--  1.v-bind绑定一个value属性-->
+<!--  2.v-on指令给当前元素绑定input事件-->
+  <input type="text" v-model="message">
+  等同于
+  <input type="text" :value="message" @input="message = $event.target.value">
+  <h1>{{message}}</h1>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HELLOWORLD'
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+  <h1>{{message}}，CS!</h1>
+<!--  v-text缺点:不够灵活，会覆盖掉标签内的文字-->
+  <h1 v-text="message">,CS!</h1>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HEELOWORLD'
+    }
+  })
+</script>
+</body>
+</html>

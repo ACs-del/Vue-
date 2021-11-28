@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+  <h1>{{message}}</h1>
+<!--  v-pre用于显示原来的mustache语法-->
+  <h1 v-pre>{{message}}</h1>
+</div>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HEELOWORLD'
+    }
+  })
+</script>
+</body>
+</html>
