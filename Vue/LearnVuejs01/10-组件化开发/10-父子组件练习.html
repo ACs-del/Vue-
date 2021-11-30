@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script src="../../js/vue.js"></script>
+<!--父模板-->
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+</div>
+
+<!--子模版-->
+<template id="cpn">
+  <div>
+  当前计数为：{{count}}<br>
+  <button @click="increment">+</button>
+  <button @click="decrement">-</button>
+  </div>
+</template>
+
+<script>
+  //父组件
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HELLOWORLD'
+    },
+    //局部子组件
+    components:{
+      cpn:{
+        template:'#cpn',
+        data(){
+          return{
+            count:0,
+          }
+        },
+        methods:{
+          increment() {
+            this.count++
+          },
+          decrement() {
+            this.count--
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

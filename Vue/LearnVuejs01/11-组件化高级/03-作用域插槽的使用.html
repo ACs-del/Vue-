@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<!--作用域插槽：-->
+<!--父组件替换插槽的标签，但是内容由子组件提供-->
+<body>
+<script src="../../js/vue.js"></script>
+<div id="app">
+  <cpn></cpn>
+  <cpn>
+<!--    目的是获取子组件中的pLanguages-->
+    <template v-slot="slotData">
+<!--      <span v-for="item in slotData.data">{{item}}-&#45;&#45;</span>-->
+      <span>{{slotData.data.join(' --- ')}}</span>
+    </template>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+<!--    绑定的名字可以随便取，这里取data-->
+    <slot :data = "pLanguages">
+    <ul>
+      <li v-for="item in pLanguages">{{item}}</li>
+    </ul>
+    </slot>
+  </div>
+</template>
+
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'HELLOWORLD'
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        data(){
+          return {
+            pLanguages:['JavaScript','c++','java','c#','Go']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
